@@ -1,0 +1,332 @@
+<html>
+<head>
+<title>Road2Science game</title>
+  <meta charset="utf-8">
+
+<style>
+
+/* Small screens ----------- */
+
+.col-md-2 {
+	position: relative;
+	border:1px solid black;
+
+	float: left;
+	display:inline-block;
+}
+body {margin-left:10vw;
+	margin-right:10vw;}
+	
+.size {
+height:15vw;
+width:15vw;}
+
+.main_img {
+	position: absolute;
+	z-index: 1;
+}
+
+.feedback_img {
+	position: absolute;
+	z-index: 3;
+}
+	
+.sizeS {height:11vw;
+	width:11vw;}
+	
+.border {
+border:2px solid red;
+}
+/* Big screens ----------- */
+@media screen and (max-width : 1000px) {
+
+
+}
+
+</style>
+
+
+</head>
+
+<body>
+<div id="into"><h1>Welcome to Byggstad!</h1>
+<p>Well, Byggstad is approved but it wased yet even been planned :(. So we need you help to plan this nice place. </p>
+<p>Choose any cell in a grid to build there something. Once cell is selected you can see number of options that can be build. Once you decided what you want to see at this cell press "CHOOSE" behind the picture. Don't worry about the money - just try to build a nice big town. Remember that people want to have homes, work and places to have fun. Of course all have to be connected with a road network. Ah, and some resourses are limited (you can have max 9 houses districts, 5 job sectors atc as written near each type).</br>
+Once you are done, just press "Finish"</p>
+</div>
+	<div style="clear:both"></div>
+		<div class="col-md-2 size"><img id="field11" src="img/empty.png" class="size main_img" onclick="choose_field('field11')"><span id="feedback11"></span></div>
+		<div class="col-md-2 size"><img id="field12" src="img/empty.png" class="size main_img" onclick="choose_field('field12')"><span id="feedback12"></span></div>
+		<div class="col-md-2 size"><img id="field13" src="img/empty.png" class="size main_img" onclick="choose_field('field13')"><span id="feedback13"></span></div>
+		<div class="col-md-2 size"><img id="field14" src="img/empty.png" class="size main_img" onclick="choose_field('field14')"><span id="feedback14"></span></div>
+		<div class="col-md-2 size"><img id="field15" src="img/empty.png" class="size main_img" onclick="choose_field('field15')"><span id="feedback15"></span></div>
+	<div style="clear:both"></div>
+		<div class="col-md-2 size"><img id="field21" src="img/empty.png" class="size main_img" onclick="choose_field('field21')"><span id="feedback21"></span></div>
+		<div class="col-md-2 size"><img id="field22" src="img/empty.png" class="size main_img" onclick="choose_field('field22')"><span id="feedback22"></span></div>
+		<div class="col-md-2 size"><img id="field23" src="img/empty.png" class="size main_img" onclick="choose_field('field23')"><span id="feedback23"></span></div>
+		<div class="col-md-2 size"><img id="field24" src="img/empty.png" class="size main_img" onclick="choose_field('field24')"><span id="feedback24"></span></div>
+		<div class="col-md-2 size"><img id="field25" src="img/empty.png" class="size main_img" onclick="choose_field('field25')"><span id="feedback25"></span></div>
+	<div style="clear:both"></div>
+		<div class="col-md-2 size"><img id="field31" src="img/empty.png" class="size main_img" onclick="choose_field('field31')"><span id="feedback31"></span></div>
+		<div class="col-md-2 size"><img id="field32" src="img/empty.png" class="size main_img" onclick="choose_field('field32')"><span id="feedback32"></span></div>
+		<div class="col-md-2 size"><img id="field33" src="img/empty.png" class="size main_img" onclick="choose_field('field33')"><span id="feedback33"></span></div>
+		<div class="col-md-2 size"><img id="field34" src="img/empty.png" class="size main_img" onclick="choose_field('field34')"><span id="feedback34"></span></div>
+		<div class="col-md-2 size"><img id="field35" src="img/empty.png" class="size main_img" onclick="choose_field('field35')"><span id="feedback35"></span></div>
+	<div style="clear:both"></div>
+		<div class="col-md-2 size"><img id="field41" src="img/empty.png" class="size main_img" onclick="choose_field('field41')"><span id="feedback41"></span></div>
+		<div class="col-md-2 size"><img id="field42" src="img/empty.png" class="size main_img" onclick="choose_field('field42')"><span id="feedback42"></span></div>
+		<div class="col-md-2 size"><img id="field43" src="img/empty.png" class="size main_img" onclick="choose_field('field43')"><span id="feedback43"></span></div>
+		<div class="col-md-2 size"><img id="field44" src="img/empty.png" class="size main_img" onclick="choose_field('field44')"><span id="feedback44"></span></div>
+		<div class="col-md-2 size"><img id="field45" src="img/empty.png" class="size main_img" onclick="choose_field('field45')"><span id="feedback45"></span></div>
+	<div style="clear:both"></div>
+		<div class="col-md-2 size"><img id="field51" src="img/empty.png" class="size main_img" onclick="choose_field('field51')"><span id="feedback51"></span></div>
+		<div class="col-md-2 size"><img id="field52" src="img/empty.png" class="size main_img" onclick="choose_field('field52')"><span id="feedback52"></span></div>
+		<div class="col-md-2 size"><img id="field53" src="img/empty.png" class="size main_img" onclick="choose_field('field53')"><span id="feedback53"></span></div>
+		<div class="col-md-2 size"><img id="field54" src="img/empty.png" class="size main_img" onclick="choose_field('field54')"><span id="feedback54"></span></div>
+		<div class="col-md-2 size"><img id="field55" src="img/empty.png" class="size main_img" onclick="choose_field('field55')"><span id="feedback55"></span></div>
+	<div style="clear:both"></div>
+	
+
+<div id="choose_field" style="display:none">
+<input type="hidden" id="choose_field_Nr"/>
+<table border="1">
+<tr><th>empty</th><th colspan="3">road</th><th>houses</th><th>jobs</th><th>relaxing</th></tr>
+<tr><td>nothing happens here</td><td>road from north to south</td><td>road from east to west</td><td>road cross</td><td>house district gives home to 1000 people</td><td>commercial distric gives jobs to 2000 people</td><td>relaxing field gives happiness to 3000 people</td></td>
+<tr><td>unlimited</td><td><span id="option1">15</span></td><td><span id="option2">15</span></td><td><span id="option3">10</span></td><td><span id="option4">9</span></td><td><span id="option5">5</span></td><td><span id="option6">3</span></td></tr>
+<tr>
+	<td><img src="img/empty.png" class="sizeS"></td>
+	<td><img src="img/roadH.png" class="sizeS"></td>
+	<td><img src="img/roadV.png" class="sizeS"></td>
+	<td><img src="img/roadC.png" class="sizeS"></td>
+	<td><img src="img/homes.png" class="sizeS"></td>
+	<td><img src="img/work.png" class="sizeS"></td>
+	<td><img src="img/park.png" class="sizeS"></td>
+</tr>
+<tr>
+<td><button onclick="choosen_field(0)">CHOOSE</button></td>
+<td><button onclick="choosen_field(1)">CHOOSE</button></td>
+<td><button onclick="choosen_field(2)">CHOOSE</button></td>
+<td><button onclick="choosen_field(3)">CHOOSE</button></td>
+<td><button onclick="choosen_field(4)">CHOOSE</button></td>
+<td><button onclick="choosen_field(5)">CHOOSE</button></td>
+<td><button onclick="choosen_field(6)">CHOOSE</button></td>
+</tr></table>
+</div>
+<button id="finish_button"onclick="finished()">Finish</button>
+<div id="CommentsDIV"></div>
+<script>
+var options=[99,15,15,10,9,5,3],
+	fields = [],
+	rows=5,
+	homes=[],
+	companies=[];
+
+
+for ( var y = 0; y < (rows+2); y++ ) { //for calculation purposes I need 0 and row+1
+    fields[ y ] = [];
+	for ( var x = 0; x < (rows+2); x++ ) {
+		fields[ y ][x] = [0,0,0,0,0,100];
+	}
+}
+	
+/*	fields[][][0] = [];//type
+	fields[][][1] = [];//traffic
+	fields[][][2] = [];//park connection
+	fields[][][3] = [];//pollution
+	fields[][][4] = [];//connection to road
+	fields[][][5] = [];//happiness
+	
+	for companies it is only if there are enought people to work and I know coordinates of companies from array comapnies.
+*/
+function choose_field(field) {
+	document.getElementById("choose_field").style.display = "block";
+	document.getElementById("choose_field_Nr").value=field;
+
+
+}
+
+function choosen_field(option) {
+	if (options[option]==0) {alert ("You don't have this card anymore");return;}
+	var field=document.getElementById("choose_field_Nr").value;
+	options[fields[parseInt(field.charAt(5))][parseInt(field.charAt(6))][0]]++;
+	options[option]--;
+	
+	for ( var y = 1; y < 7; y++ ) {
+		var field_name="option" + y;
+		document.getElementById(field_name).innerHTML=options[y];
+	}
+
+	switch (option) {
+		case 0: document.getElementById(field).src="img/empty.png"; break;
+		case 1: document.getElementById(field).src="img/roadH.png"; break;
+		case 2: document.getElementById(field).src="img/roadV.png"; break;
+		case 3: document.getElementById(field).src="img/roadC.png"; break;
+		case 4: document.getElementById(field).src="img/homes.png"; break;
+		case 5: document.getElementById(field).src="img/work.png"; break;
+		case 6: document.getElementById(field).src="img/park.png"; break;		
+	}
+	document.getElementById("choose_field").style.display = "none";
+	fields[parseInt(field.charAt(5))][parseInt(field.charAt(6))][0]=option;
+	
+	//console.log(options);
+}
+
+function finished(){
+var general_state, total_score=100, Comments;
+
+Comments="<h1>You have created your town!</h1>";
+Comments=Comments + "<p><b>Maximum population: </b>" + (9000-options[4]*1000) + "</br>";
+Comments=Comments + "<p><b>Maximum work places: </b>" + (10000-options[5]*2000) + "</br>";
+Comments=Comments + "<p><b>Maximum relaxation places: </b>" + (9000-options[6]*3000) + "</br></p></br>";
+Comments=Comments + "<h3>Feedback about your town</h3><p>"
+
+if(((9-options[4])/(5-options[5]+0.1))>2) {Comments=Comments + "Some people complain about uneployment. \n"; total_score=total_score-((9-options[4])/(5-options[5]+0.1))-(2*(9-options[4])/(9-options[4]+0.05));} 
+if(((9-options[4])/(5-options[5]+0.1))<1.5) {Comments=Comments + "Some companies complain about lack of workers. \n"; total_score=total_score-(2*(9-options[4])/(9-options[4]+0.05))-((9-options[4])/(5-options[5]+0.1));} 
+if(((9-options[4])/(3-options[6]+0.1))>3.5) {Comments=Comments + "Some people complain about lack of relaxation zones. \n"; total_score=total_score-((9-options[4])/(3-options[6]+0.1))-(3*(9-options[4])/(9-options[4]+0.05));}
+if (total_score>99) Comments=Comments + "People are happy in your City. \n";
+
+
+	for ( var x = 1; x < (rows+1); x++ ) {
+		for ( var y = 1; y < (rows+1); y++ ) {
+		var happiness=total_score;
+
+			if (fields[x][y][0]==4){ //if it is house
+				homes.push([x,y]);
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x+1][y][1]++;
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x-1][y][1]++; 
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y+1][1]++; 
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y-1][1]++;
+				/*POLLUTION FROM COMPANIES*/
+				if (fields[x+1][y][0]==5) {fields[x][y][3]++; happiness=happiness-2;}
+				if (fields[x-1][y][0]==5) {fields[x][y][3]++; happiness=happiness-2;} 
+				if (fields[x][y+1][0]==5) {fields[x][y][3]++; happiness=happiness-2;} 
+				if (fields[x][y-1][0]==5) {fields[x][y][3]++; happiness=happiness-2;} 
+				if (fields[x][y][3]>2) {happiness=happiness-10; Comments=Comments + "Some housholds complain that there is too high level of pollution. \n";}
+				/*PARKS*/
+				if (fields[x+1][y][0]==6 || fields[x-1][y][0]==6 || fields[x][y+1][0]==6 ||fields[x][y-1][0]==6||fields[x+1][y+1][0]==6||fields[x-1][y+1][0]==6||fields[x+1][y-1][0]==6||fields[x-1][y-1][0]==6) {fields[x][y][2]=1;happiness=happiness+3}
+				/*ROAD CONNECTIVITY*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3||fields[x-1][y][0]==2 || fields[x-1][y][0]==3||fields[x][y+1][0]==1 || fields[x][y+1][0]==3||fields[x][y-1][0]==1 || fields[x][y-1][0]==3) {
+					fields[x][y][4]=1;}//connected					
+				else {happiness=10;
+				Comments=Comments + "Some housholds complain that they are not connected to road network. \n";}
+				fields[x][y][5]=happiness;
+				
+			}
+			
+			if (fields[x][y][0]==5){ //if it is works
+				companies.push([x,y]);
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x+1][y][1]+=2;
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x-1][y][1]+=2; 
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y+1][1]+=2; 
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y-1][1]+=2;
+				
+				/*Competition FROM COMPANIES*/
+				if (fields[x+1][y][0]==5) {fields[x][y][3]++;}
+				if (fields[x-1][y][0]==5) {fields[x][y][3]++;} 
+				if (fields[x][y+1][0]==5) {fields[x][y][3]++;} 
+				if (fields[x][y-1][0]==5) {fields[x][y][3]++;}
+				if (fields[x+1][y+1][0]==5) {fields[x][y][3]++;}
+				if (fields[x-1][y+1][0]==5) {fields[x][y][3]++;} 
+				if (fields[x+1][y-1][0]==5) {fields[x][y][3]++;} 
+				if (fields[x-1][y-1][0]==5) {fields[x][y][3]++;} 
+				if (fields[x][y][3]>2) {happiness=happiness-10; Comments=Comments + "Some companies complain that there is too high other companies around them. \n";}
+				
+				/*ROAD CONNECTIVITY*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3||fields[x-1][y][0]==2 || fields[x-1][y][0]==3||fields[x][y+1][0]==1 || fields[x][y+1][0]==3||fields[x][y-1][0]==1 || fields[x][y-1][0]==3) {
+					fields[x][y][4]=1;}//connected					
+				else {happiness=10;
+				Comments=Comments + "Some companies complain that they are not connected to road network. \n";}
+				fields[x][y][5]=happiness; 				
+			}
+			
+			if (fields[x][y][0]==6){ //if it is park
+				/*ROAD CONNECTIVITY*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3||fields[x-1][y][0]==2 || fields[x-1][y][0]==3||fields[x][y+1][0]==1 || fields[x][y+1][0]==3||fields[x][y-1][0]==1 || fields[x][y-1][0]==3) {
+					fields[x][y][4]=1;}//connected					
+				else {happiness=10;
+				Comments=Comments + "Some relaxating spots complain that they are not connected to road network. \n";}
+				fields[x][y][5]=happiness; 				
+			}
+			
+			if (fields[x][y][0]==2){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x][y][1]++;
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++;
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + "Some people complain about traffic \n";}				
+			}
+			
+			if (fields[x][y][0]==1){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++;
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + "Some people complain about traffic \n";}				
+			}
+			
+			if (fields[x][y][0]==3){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x][y][1]++;
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++; 
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++; 
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + "Some people complain about traffic. \n";}				
+				
+			}
+			
+		}
+	}
+
+	var traveled_distance=0, counter=0; //calculate travel distance
+	for ( var x = 0; x < homes.length; x++ ) {
+		for ( var y = 0; y < companies.length; y++ ) {			
+			traveled_distance=traveled_distance+Math.sqrt(Math.pow((homes[x][0]-companies[y][0]), 2)+Math.pow((homes[x][1]-companies[y][1]), 2));
+			counter++;		
+		}
+	}
+	if (counter>0) traveled_distance=traveled_distance/counter;
+
+/*SHOW RESULTS*/
+	for ( var x = 1; x < (rows+1); x++ ) {
+		for ( var y = 1; y < (rows+1); y++ ) {
+			fields[x][y][5]+=60-(traveled_distance*10);
+			total_score+=fields[x][y][5]/10;
+			console.log(fields[x][y][5]);
+			if (fields[x][y][5]>95) document.getElementById("feedback" + x + y).innerHTML="<img src=\"img/happy.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
+			else {if (fields[x][y][5]>75) document.getElementById("feedback" + x + y).innerHTML="<img src=\"img/OK.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
+			else document.getElementById("feedback" + x + y).innerHTML="<img src=\"img/sad.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
+			}
+			if (fields[x][y][0]==0) document.getElementById("feedback" + x + y).innerHTML="<img src=\"img/empty.png\" class=\"size feedback_img\">";
+		}
+	}
+total_score+=homes.length*30;
+total_score+=companies.length*30;
+total_score+=(3-options[6])*30;
+
+if (traveled_distance<2.5) Comments=Comments + "People are happy for short traveling times. ";
+else {if (traveled_distance<2.5) Comments=Comments + "People are OK with the traveling time. ";
+	else Comments=Comments + "People are sad because they have to travel a lot. ";}
+
+Comments=Comments + "</p><p><b>Your final score: </b>" + Math.round(total_score);
+Comments=Comments + ". <i>The highest ever score is 978. So, do you think you can do better?</i>"	
+document.getElementById("CommentsDIV").innerHTML=Comments;
+document.getElementById("finish_button").style.display = "none";
+document.getElementById("into").style.display = "none";	
+		
+	
+}
+
+ 
+</script>	
+	
+</body>
+</html>
