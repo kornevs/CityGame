@@ -5,11 +5,32 @@
 
 <style>
 
+#tweets {
+border-collapse: collapse;
+width:100%;
+padding: 9px 12px;
+font-family: "Segoe UI",Arial,sans-serif;
+border: 0px;
+}
 
+#tweets	td {vertical-align: top;}
+
+#tweets	th, td { border-bottom: 1px solid #e6ecf0;}
+
+.avatar {
+	width: 50px;
+    height: 50px;
+    border-radius: 50%;	
+	margin-right:5px;
+}
+
+.heshtag {
+color: #1DA1F2;
+}
 
 .cell {
 	position: relative;
-	border:1px solid black;
+	border:1px solid #097520;
 
 	float: left;
 	display:inline-block;
@@ -54,7 +75,8 @@
     color: white;
 	width:18px;
 	height:18px;
-	text-align: center;}
+	text-align: center;
+	display:none;}
 
 .border {
 	border:2px solid red;}
@@ -171,7 +193,7 @@
 
 
 </style>
-
+<script src="feedback.js"></script>
 
 </head>
 
@@ -310,35 +332,70 @@ Once you are done, just press "Finish"</p>
 	<div class="cell" onclick="build_category('road_category')"><img src="img/roadH.png" class="sizeS"><br><b>Roads</b></div>
 	<div class="cell" onclick="build_category('housing_category')"><img src="img/homes.png" class="sizeS"><br><b>Housing</b></div>
 	<div class="cell" onclick="build_category('job_category')"><img src="img/work.png" class="sizeS"><br><b>Job districts</b></div>
-	<div class="cell" onclick="build_category('relax_category')"><img src="img/park.png" class="sizeS"><br><b>Entertaiment areas</b></div>
+	<div class="cell" onclick="build_category('entertainment_category')"><img src="img/museum.png" class="sizeS"><br><b>Entertainment areas</b></div>
+	<div class="cell" onclick="build_category('energy_category')"><img src="img/nuclear.png" class="sizeS"><br><b>Energy sector</b></div>
+	<div class="cell" onclick="build_category('education_category')"><img src="img/skolan.png" class="sizeS"><br><b>Educational buildings</b></div>
+	<div class="cell" onclick="build_category('emergency_category')"><img src="img/sjukhus.png" class="sizeS"><br><b>Emergency services</b></div>
 	<div style="clear:both"></div>
 	</br>
 	<div id="road_category"  style="display:none">
-		<div onclick="choosen_field(1)" class="build_choice"><img src="img/roadH.png" class="sizeM"><div class="amount" id="option1">15</div>road from north to south</div>
-		<div onclick="choosen_field(2)" class="build_choice"><img src="img/roadV.png" class="sizeM"><div class="amount" id="option2">15</div>road from east to west</div>
-		<div onclick="choosen_field(3)" class="build_choice"><img src="img/roadC.png" class="sizeM"><div class="amount" id="option3">10</div>road cross</div>
+		<div onclick="choosen_field(1)" class="build_choice"><img src="img/roadH.png" class="sizeM">road from north to south</div>
+		<div onclick="choosen_field(2)" class="build_choice"><img src="img/roadV.png" class="sizeM">road from east to west</div>
+		<div onclick="choosen_field(3)" class="build_choice"><img src="img/roadC.png" class="sizeM">road cross</div>
+		<div onclick="choosen_field(4)" class="build_choice"><img src="img/road1.png" class="sizeM">t-shape road cross</div>
+		<div onclick="choosen_field(5)" class="build_choice"><img src="img/road2.png" class="sizeM">t-shape road cross</div>
+		<div onclick="choosen_field(6)" class="build_choice"><img src="img/road3.png" class="sizeM">t-shape road cross</div>
+		<div onclick="choosen_field(7)" class="build_choice"><img src="img/road4.png" class="sizeM">t-shape road cross</div>
+		<div onclick="choosen_field(8)" class="build_choice"><img src="img/road5.png" class="sizeM">turning road</div>
+		<div onclick="choosen_field(9)" class="build_choice"><img src="img/road6.png" class="sizeM">turning road</div>
+		<div onclick="choosen_field(10)" class="build_choice"><img src="img/road7.png" class="sizeM">turning road</div>
+		<div onclick="choosen_field(11)" class="build_choice"><img src="img/road8.png" class="sizeM">turning road</div>
 		<div style="clear:both"></div>
 	</div>
 	<div id="housing_category"  style="display:none">
-		<div onclick="choosen_field(4)" class="build_choice"><img src="img/homes.png" class="sizeM"><div class="amount" id="option4">9</div>house district gives home to 1000 people</div>
+		<div onclick="choosen_field(12)" class="build_choice"><img src="img/homes.png" class="sizeM"><b>District with villas</b> gives home to 1000 people</div>
+		<div onclick="choosen_field(13)" class="build_choice"><img src="img/radhus.png" class="sizeM"><b>District with rådhuset</b> that gives home to 1000 people</div>
+		<div onclick="choosen_field(14)" class="build_choice"><img src="img/lagenhet.png" class="sizeM"><b>District with lägenhet</b> that gives home to 1000 people</div>
 		<div style="clear:both"></div>
 	</div>
 	<div id="job_category"  style="display:none">
-		<div onclick="choosen_field(5)" class="build_choice"><img src="img/work.png" class="sizeM"><div class="amount" id="option5">5</div>commercial distric gives jobs to 2000 people</div>
+		<div onclick="choosen_field(15)" class="build_choice"><img src="img/work.png" class="sizeM">factory that gives jobs to 2000 people</div>
+		<div onclick="choosen_field(16)" class="build_choice"><img src="img/office.png" class="sizeM">office distric gives jobs to 2000 people</div>
 		<div style="clear:both"></div>
 	</div>
-	<div id="relax_category"  style="display:none">
-		<div onclick="choosen_field(6)" class="build_choice"><img src="img/park.png" class="sizeM"><div class="amount" id="option6">3</div>relaxing field gives happiness to 3000 people</div>
+	<div id="entertainment_category"  style="display:none">
+		<div onclick="choosen_field(17)" class="build_choice"><img src="img/park.png" class="sizeM">park gives happiness to 3000 people</div>
+		<div onclick="choosen_field(18)" class="build_choice"><img src="img/casino.png" class="sizeM">casino gives happiness to 3000 people</div>
+		<div onclick="choosen_field(19)" class="build_choice"><img src="img/museum.png" class="sizeM">museum gives happiness to 3000 people</div>
 		<div style="clear:both"></div>
 	</div>
+	<div id="energy_category"  style="display:none">
+		<div onclick="choosen_field(20)" class="build_choice"><img src="img/coal.png" class="sizeM">park gives happiness to 3000 people</div>
+		<div onclick="choosen_field(21)" class="build_choice"><img src="img/windmill.png" class="sizeM">casino gives happiness to 3000 people</div>
+		<div onclick="choosen_field(22)" class="build_choice"><img src="img/nuclear.png" class="sizeM">museum gives happiness to 3000 people</div>
+		<div style="clear:both"></div>
+	</div>
+	<div id="education_category"  style="display:none">
+		<div onclick="choosen_field(23)" class="build_choice"><img src="img/dagis.png" class="sizeM">park gives happiness to 3000 people</div>
+		<div onclick="choosen_field(24)" class="build_choice"><img src="img/skolan.png" class="sizeM">casino gives happiness to 3000 people</div>
+		<div onclick="choosen_field(25)" class="build_choice"><img src="img/hogskolan.png" class="sizeM">museum gives happiness to 3000 people</div>
+		<div style="clear:both"></div>
+	</div>
+	<div id="emergency_category"  style="display:none">
+		<div onclick="choosen_field(26)" class="build_choice"><img src="img/brandstation.png" class="sizeM"><b>Brandstation</b> gives happiness to 3000 people</div>
+		<div onclick="choosen_field(27)" class="build_choice"><img src="img/polis.png" class="sizeM">casino gives happiness to 3000 people</div>
+		<div onclick="choosen_field(28)" class="build_choice"><img src="img/sjukhus.png" class="sizeM">museum gives happiness to 3000 people</div>
+		<div style="clear:both"></div>
+	</div>
+	
 	<button onclick="close_build()">Close</button>
 </div>
 
 <div id="CommentsDIV"></div>
 <script>
-var options=[99,15,15,10,9,5,3],
+var options=[99,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 	fields = [],
-	rows=5,
+	rows=10,
 	homes=[],
 	companies=[],
 	active_cell="",
@@ -355,7 +412,7 @@ for ( var y = 0; y < (rows+2); y++ ) { //for calculation purposes I need 0 and r
 	
 /*	fields[][][0] = [];//type
 	fields[][][1] = [];//traffic
-	fields[][][2] = [];//park connection
+	fields[][][2] = [];//surroundings
 	fields[][][3] = [];//pollution
 	fields[][][4] = [];//connection to road
 	fields[][][5] = [];//happiness
@@ -396,39 +453,86 @@ function build_category(category) {
 document.getElementById("road_category").style.display = "none";
 document.getElementById("housing_category").style.display = "none";
 document.getElementById("job_category").style.display = "none";
-document.getElementById("relax_category").style.display = "none";
+document.getElementById("entertainment_category").style.display = "none";
+document.getElementById("energy_category").style.display = "none";
+document.getElementById("education_category").style.display = "none";
+document.getElementById("emergency_category").style.display = "none";
 document.getElementById(category).style.display = "block";
 }
 
 
 function choosen_field(option) {
-	if (options[option]==0) {alert ("You don't have this card anymore");return;}
-	var field=active_cell;
-	options[fields[parseInt(field.charAt(5))][parseInt(field.charAt(6))][0]]++;
-	options[option]--;
+var field=active_cell;
+		options[option]++;
+		options[fields[parseInt(field.charAt(5))+1][parseInt(field.charAt(6))+1][0]]--;
+	fields[parseInt(field.charAt(5))+1][parseInt(field.charAt(6))+1][0]=option;
 	
-	for ( var y = 1; y < 7; y++ ) {
-		var field_name="option" + y;
-		document.getElementById(field_name).innerHTML=options[y];
-	}
-
+	
+	
+	
 	switch (option) {
-		case 0: document.getElementById(field).src="img/empty.png"; break;
-		case 1: document.getElementById(field).src="img/roadH.png"; break;
-		case 2: document.getElementById(field).src="img/roadV.png"; break;
-		case 3: document.getElementById(field).src="img/roadC.png"; break;
-		case 4: document.getElementById(field).src="img/homes.png"; break;
-		case 5: document.getElementById(field).src="img/work.png"; break;
-		case 6: document.getElementById(field).src="img/park.png"; break;		
+		case 0: document.getElementById(field).src="img/empty.png";
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		case 1: document.getElementById(field).src="img/roadH.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		case 2: document.getElementById(field).src="img/roadV.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		case 3: document.getElementById(field).src="img/roadC.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		case 4: document.getElementById(field).src="img/road1.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		case 5: document.getElementById(field).src="img/road2.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		case 6: document.getElementById(field).src="img/road3.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 7: document.getElementById(field).src="img/road4.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 8: document.getElementById(field).src="img/road5.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 9: document.getElementById(field).src="img/road6.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 10: document.getElementById(field).src="img/road7.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 11: document.getElementById(field).src="img/road8.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 12: document.getElementById(field).src="img/homes.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;	
+		case 13: document.getElementById(field).src="img/radhus.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 14: document.getElementById(field).src="img/lagenhet.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 15: document.getElementById(field).src="img/work.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 16: document.getElementById(field).src="img/office.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 17: document.getElementById(field).src="img/park.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 18: document.getElementById(field).src="img/casino.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 19: document.getElementById(field).src="img/museum.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 20: document.getElementById(field).src="img/coal.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 21: document.getElementById(field).src="img/windmill.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 22: document.getElementById(field).src="img/nuclear.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 23: document.getElementById(field).src="img/dagis.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 24: document.getElementById(field).src="img/skolan.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 25: document.getElementById(field).src="img/hogskolan.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;	
+		case 26: document.getElementById(field).src="img/brandstation.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 27: document.getElementById(field).src="img/polis.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		case 28: document.getElementById(field).src="img/sjukhus.png"; 
+		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;			
 	}
-	document.getElementById("build").style.display = "none";
-	fields[parseInt(field.charAt(5))][parseInt(field.charAt(6))][0]=option;
-	document.getElementById("cell_discription").innerHTML="<h3>"+ fields_names[option]+"</h3><p>"+ fields_disc[option]+"</p>";
 	
-	
+	document.getElementById("build").style.display = "none";	
 }
-
-
 
 
 
@@ -436,99 +540,115 @@ function finished(){
 var general_state, total_score=100, Comments;
 
 Comments="<h1>You have created your town!</h1>";
-Comments=Comments + "<p><b>Maximum population: </b>" + (9000-options[4]*1000) + "</br>";
-Comments=Comments + "<p><b>Maximum work places: </b>" + (10000-options[5]*2000) + "</br>";
-Comments=Comments + "<p><b>Maximum relaxation places: </b>" + (9000-options[6]*3000) + "</br></p></br>";
-Comments=Comments + "<h3>Feedback about your town</h3><p>"
+var max_population=options[12]*500+options[13]*1500+options[14]*5000;
+var max_workplace=options[15]*7000+options[16]*7000+options[17]*500+options[18]*500+options[19]*500+options[20]*500+options[21]*500+options[22]*500+options[23]*500+options[24]*500+options[25]*500+options[26]*500+options[27]*500+options[28]*500;
+var max_entertaiment=options[17]*10000+options[18]*10000+options[19]*10000;
 
-if(((9-options[4])/(5-options[5]+0.1))>2) {Comments=Comments + "Some people complain about uneployment. \n"; total_score=total_score-((9-options[4])/(5-options[5]+0.1))-(2*(9-options[4])/(9-options[4]+0.05));} 
-if(((9-options[4])/(5-options[5]+0.1))<1.5) {Comments=Comments + "Some companies complain about lack of workers. \n"; total_score=total_score-(2*(9-options[4])/(9-options[4]+0.05))-((9-options[4])/(5-options[5]+0.1));} 
-if(((9-options[4])/(3-options[6]+0.1))>3.5) {Comments=Comments + "Some people complain about lack of relaxation zones. \n"; total_score=total_score-((9-options[4])/(3-options[6]+0.1))-(3*(9-options[4])/(9-options[4]+0.05));}
-if (total_score>99) Comments=Comments + "People are happy in your City. \n";
+Comments=Comments + "<p><b>Maximum population: </b>" + max_population + "</br>";
+Comments=Comments + "<p><b>Maximum work places: </b>" + max_workplace + "</br>";
+Comments=Comments + "<p><b>Maximum relaxation places: </b>" + max_entertaiment + "</br></p></br>";
+Comments=Comments + "<h3>Tweets about your town</h3><div style=\"overflow-y: scroll; height:400px;\"><table id=\"tweets\">";
 
+if((max_workplace/max_population)<0.9) {Comments=Comments + tweeting(0); total_score=(max_workplace/max_population)*total_score;} else {total_score=total_score*1.02} //unemplyment
+if((max_workplace/max_population)>1.3) {Comments=Comments + tweeting(1); total_score=0.9*total_score;}  else {total_score=total_score*1.02} //lack of workers
+if((max_entertaiment/max_population)<0.8) {Comments=Comments + tweeting(2); total_score=0.9*total_score;} else {total_score=total_score*1.02} //lack of entertaiment
+if (options[20]<1&&options[21]<2&&options[22]<1) {Comments=Comments + tweeting(3); total_score=0.7*total_score;} //lack of energy
+if (((options[23]*50000)/max_population)<0.8) {Comments=Comments + tweeting(4); total_score=0.8*total_score;} //lack of dagis
+if (((options[24]*80000)/max_population)<0.8) {Comments=Comments + tweeting(5); total_score=0.8*total_score;} //lack of schools
+if (options[25]<1) {Comments=Comments + tweeting(6); total_score=0.8*total_score;} //lack of a university
+if (((options[26]*100000)/max_population)<0.8) {Comments=Comments + tweeting(7); total_score=0.8*total_score;} //lack of fire station
+if (((options[27]*100000)/max_population)<0.8) {Comments=Comments + tweeting(8); total_score=0.8*total_score;} //lack of polis
+if (((options[28]*50000)/max_population)<0.8) {Comments=Comments + tweeting(9); total_score=0.8*total_score;} //lack of hospitals
+if (total_score>99) Comments=Comments + tweeting(10);
+
+console.log("Priliminary score is " + total_score + " out of 100");
 
 	for ( var x = 1; x < (rows+1); x++ ) {
 		for ( var y = 1; y < (rows+1); y++ ) {
 		var happiness=total_score;
-
-			if (fields[x][y][0]==4){ //if it is house
+		
+			if (fields[x][y][0]==12||fields[x][y][0]==13||fields[x][y][0]==14){ //if it is house
 				homes.push([x,y]);
 				/*TRAFFIC*/
-				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x+1][y][1]++;
-				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x-1][y][1]++; 
-				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y+1][1]++; 
-				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y-1][1]++;
-				/*POLLUTION FROM COMPANIES*/
-				if (fields[x+1][y][0]==5) {fields[x][y][3]++; happiness=happiness-2;}
-				if (fields[x-1][y][0]==5) {fields[x][y][3]++; happiness=happiness-2;} 
-				if (fields[x][y+1][0]==5) {fields[x][y][3]++; happiness=happiness-2;} 
-				if (fields[x][y-1][0]==5) {fields[x][y][3]++; happiness=happiness-2;} 
-				if (fields[x][y][3]>2) {happiness=happiness-10; Comments=Comments + "Some housholds complain that there is too high level of pollution. \n";}
-				/*PARKS*/
-				if (fields[x+1][y][0]==6 || fields[x-1][y][0]==6 || fields[x][y+1][0]==6 ||fields[x][y-1][0]==6||fields[x+1][y+1][0]==6||fields[x-1][y+1][0]==6||fields[x+1][y-1][0]==6||fields[x-1][y-1][0]==6) {fields[x][y][2]=1;happiness=happiness+3}
+				if ((fields[x+1][y][0]==2 || fields[x+1][y][0]==3 || fields[x+1][y][0]==5 || fields[x+1][y][0]==6 || fields[x+1][y][0]==7 || fields[x+1][y][0]==10 || fields[x+1][y][0]==11)) 	{fields[x+1][y][1]++; fields[x][y][4]=1;}
+				if ((fields[x-1][y][0]==2 || fields[x-1][y][0]==3 || fields[x-1][y][0]==4 || fields[x-1][y][0]==5 || fields[x-1][y][0]==7 || fields[x-1][y][0]==8 || fields[x-1][y][0]==9) )		{fields[x-1][y][1]++; fields[x][y][4]=1;}
+				if ((fields[x][y+1][0]==1 || fields[x][y+1][0]==3 || fields[x][y+1][0]==4 || fields[x][y+1][0]==5 || fields[x][y+1][0]==6 || fields[x][y+1][0]==9 || fields[x][y+1][0]==10) )	{fields[x][y+1][1]++; fields[x][y][4]=1;}
+				if ((fields[x][y-1][0]==1 || fields[x][y-1][0]==3 || fields[x][y-1][0]==4 || fields[x][y-1][0]==6 || fields[x][y-1][0]==7 || fields[x][y-1][0]==8 || fields[x][y-1][0]==11) ) 	{fields[x][y-1][1]++; fields[x][y][4]=1;}
+				/*POLLUTION FROM FACTORY, NUCLEAR or COAL POWER STATIONS*/
+				if (x!=9 && (fields[x+1][y][0]==15 || fields[x+1][y][0]==20 || fields[x+1][y][0]==22)) {fields[x][y][3]++; happiness=happiness-15;}
+				if (x!=0 && (fields[x-1][y][0]==15 || fields[x-1][y][0]==20 || fields[x-1][y][0]==22)) {fields[x][y][3]++; happiness=happiness-15;} 
+				if (y!=9 && (fields[x][y+1][0]==15 || fields[x][y+1][0]==20 || fields[x][y+1][0]==22)) {fields[x][y][3]++; happiness=happiness-15;} 
+				if (y!=0 && (fields[x][y-1][0]==15 || fields[x][y-1][0]==20 || fields[x][y-1][0]==22)) {fields[x][y][3]++; happiness=happiness-15;}				
+				if (fields[x][y][3]>2) {happiness=happiness-10; Comments=Comments + tweeting(11);}
+				/*ENTERTAIMENT*/
+				if (x!=9 && (fields[x+1][y][0]==17 || fields[x+1][y][0]==18 || fields[x+1][y][0]==19)) {happiness=happiness+10;}
+				if (x!=0 && (fields[x-1][y][0]==17 || fields[x-1][y][0]==18 || fields[x-1][y][0]==19)) {happiness=happiness+10;} 
+				if (y!=9 && (fields[x][y+1][0]==17 || fields[x][y+1][0]==18 || fields[x][y+1][0]==19)) {happiness=happiness+10;} 
+				if (y!=0 && (fields[x][y-1][0]==17 || fields[x][y-1][0]==18 || fields[x][y-1][0]==19)) {happiness=happiness+10;}				
 				/*ROAD CONNECTIVITY*/
-				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3||fields[x-1][y][0]==2 || fields[x-1][y][0]==3||fields[x][y+1][0]==1 || fields[x][y+1][0]==3||fields[x][y-1][0]==1 || fields[x][y-1][0]==3) {
-					fields[x][y][4]=1;}//connected					
-				else {happiness=10;
-				Comments=Comments + "Some housholds complain that they are not connected to road network. \n";}
+				if (fields[x][y][4]!=1) {happiness=10;	Comments=Comments + tweeting(12);}	// not connected					
+				
 				fields[x][y][5]=happiness;
 				
 			}
 			
-			if (fields[x][y][0]==5){ //if it is works
+			if (fields[x][y][0]==15||fields[x][y][0]==16){ //if it is FACTORY or OFFICE
 				companies.push([x,y]);
 				/*TRAFFIC*/
-				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x+1][y][1]+=2;
-				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x-1][y][1]+=2; 
-				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y+1][1]+=2; 
-				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y-1][1]+=2;
+				if ((fields[x+1][y][0]==2 || fields[x+1][y][0]==3 || fields[x+1][y][0]==5 || fields[x+1][y][0]==6 || fields[x+1][y][0]==7 || fields[x+1][y][0]==10 || fields[x+1][y][0]==11) && x!=9) 	{fields[x+1][y][1]++; fields[x][y][4]=1;}
+				if ((fields[x-1][y][0]==2 || fields[x-1][y][0]==3 || fields[x-1][y][0]==4 || fields[x-1][y][0]==5 || fields[x-1][y][0]==7 || fields[x-1][y][0]==8 || fields[x-1][y][0]==9) && x!=0)		{fields[x-1][y][1]++; fields[x][y][4]=1;}
+				if ((fields[x][y+1][0]==1 || fields[x][y+1][0]==3 || fields[x][y+1][0]==4 || fields[x][y+1][0]==5 || fields[x][y+1][0]==6 || fields[x][y+1][0]==9 || fields[x][y+1][0]==10) && y!=9)	{fields[x][y+1][1]++; fields[x][y][4]=1;}
+				if ((fields[x][y-1][0]==1 || fields[x][y-1][0]==3 || fields[x][y-1][0]==4 || fields[x][y-1][0]==6 || fields[x][y-1][0]==7 || fields[x][y-1][0]==8 || fields[x][y-1][0]==11) && y!=0) 	{fields[x][y-1][1]++; fields[x][y][4]=1;}
 				
 				/*Competition FROM COMPANIES*/
-				if (fields[x+1][y][0]==5) {fields[x][y][3]++;}
-				if (fields[x-1][y][0]==5) {fields[x][y][3]++;} 
-				if (fields[x][y+1][0]==5) {fields[x][y][3]++;} 
-				if (fields[x][y-1][0]==5) {fields[x][y][3]++;}
-				if (fields[x+1][y+1][0]==5) {fields[x][y][3]++;}
-				if (fields[x-1][y+1][0]==5) {fields[x][y][3]++;} 
-				if (fields[x+1][y-1][0]==5) {fields[x][y][3]++;} 
-				if (fields[x-1][y-1][0]==5) {fields[x][y][3]++;} 
-				if (fields[x][y][3]>2) {happiness=happiness-10; Comments=Comments + "Some companies complain that there is too high other companies around them. \n";}
+				if (x!=9 && (fields[x+1][y][0]==15 || fields[x+1][y][0]==16)) {fields[x][y][3]++;}
+				if (x!=0 && (fields[x-1][y][0]==15 || fields[x-1][y][0]==16)) {fields[x][y][3]++;} 
+				if (y!=9 && (fields[x][y+1][0]==15 || fields[x][y+1][0]==16)) {fields[x][y][3]++;} 
+				if (y!=0 && (fields[x][y-1][0]==15 || fields[x][y-1][0]==16)) {fields[x][y][3]++;}
+				if (x!=9 && y!=9 && (fields[x+1][y+1][0]==15 || fields[x+1][y+1][0]==16)) {fields[x][y][3]++;}
+				if (x!=0 && y!=9 && (fields[x-1][y+1][0]==15 || fields[x-1][y+1][0]==16)) {fields[x][y][3]++;} 
+				if (x!=9 && y!=0 && (fields[x+1][y-1][0]==15 || fields[x+1][y-1][0]==16)) {fields[x][y][3]++;} 
+				if (x!=0 && y!=0 && (fields[x-1][y-1][0]==15 || fields[x-1][y-1][0]==16)) {fields[x][y][3]++;} 
+				if (fields[x][y][2]>2) {happiness=happiness-30; Comments=Comments + tweeting(13);}
 				
 				/*ROAD CONNECTIVITY*/
-				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3||fields[x-1][y][0]==2 || fields[x-1][y][0]==3||fields[x][y+1][0]==1 || fields[x][y+1][0]==3||fields[x][y-1][0]==1 || fields[x][y-1][0]==3) {
-					fields[x][y][4]=1;}//connected					
-				else {happiness=10;
-				Comments=Comments + "Some companies complain that they are not connected to road network. \n";}
+				if (fields[x][y][4]!=1) {happiness=10;	Comments=Comments + tweeting(14);}	// not connected					
+				
 				fields[x][y][5]=happiness; 				
 			}
 			
-			if (fields[x][y][0]==6){ //if it is park
-				/*ROAD CONNECTIVITY*/
-				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3||fields[x-1][y][0]==2 || fields[x-1][y][0]==3||fields[x][y+1][0]==1 || fields[x][y+1][0]==3||fields[x][y-1][0]==1 || fields[x][y-1][0]==3) {
-					fields[x][y][4]=1;}//connected					
-				else {happiness=10;
-				Comments=Comments + "Some relaxating spots complain that they are not connected to road network. \n";}
+			if (fields[x][y][0]>15){ //if other objects
+				/*TRAFFIC ROAD CONNECTIVITY*/
+				if ((fields[x+1][y][0]==2 || fields[x+1][y][0]==3 || fields[x+1][y][0]==5 || fields[x+1][y][0]==6 || fields[x+1][y][0]==7 || fields[x+1][y][0]==10 || fields[x+1][y][0]==11) && x!=9) 	{fields[x+1][y][1]++; fields[x][y][4]=1;}
+				if ((fields[x-1][y][0]==2 || fields[x-1][y][0]==3 || fields[x-1][y][0]==4 || fields[x-1][y][0]==5 || fields[x-1][y][0]==7 || fields[x-1][y][0]==8 || fields[x-1][y][0]==9) && x!=0)		{fields[x-1][y][1]++; fields[x][y][4]=1;}
+				if ((fields[x][y+1][0]==1 || fields[x][y+1][0]==3 || fields[x][y+1][0]==4 || fields[x][y+1][0]==5 || fields[x][y+1][0]==6 || fields[x][y+1][0]==9 || fields[x][y+1][0]==10) && y!=9)	{fields[x][y+1][1]++; fields[x][y][4]=1;}
+				if ((fields[x][y-1][0]==1 || fields[x][y-1][0]==3 || fields[x][y-1][0]==4 || fields[x][y-1][0]==6 || fields[x][y-1][0]==7 || fields[x][y-1][0]==8 || fields[x][y-1][0]==11) && y!=0) 	{fields[x][y-1][1]++; fields[x][y][4]=1;}	
+				if (fields[x][y][4]!=1) {happiness=10;	Comments=Comments + tweeting(fields[x][y][0]-2);}	// not connected				
 				fields[x][y][5]=happiness; 				
+			}
+			
+	
+			
+			if (fields[x][y][0]==1){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++; 
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
 			}
 			
 			if (fields[x][y][0]==2){ //if it is a road
 				/*TRAFFIC*/
 				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x][y][1]++;
-				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++;
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++; 
+				
 				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
 				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
 				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
-				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + "Some people complain about traffic \n";}				
-			}
-			
-			if (fields[x][y][0]==1){ //if it is a road
-				/*TRAFFIC*/
-				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++;
-				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
-				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
-				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
-				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
-				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + "Some people complain about traffic \n";}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
 			}
 			
 			if (fields[x][y][0]==3){ //if it is a road
@@ -537,13 +657,105 @@ if (total_score>99) Comments=Comments + "People are happy in your City. \n";
 				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++; 
 				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++; 
 				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				
 				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
 				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
 				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
-				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + "Some people complain about traffic. \n";}				
-				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
 			}
 			
+			if (fields[x][y][0]==4){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x][y][1]++;
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++; 
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
+			}
+			
+			if (fields[x][y][0]==5){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x][y][1]++;
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++; 
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
+			}
+			
+			if (fields[x][y][0]==6){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++; 
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++; 
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
+			}
+			
+			if (fields[x][y][0]==7){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x][y][1]++;
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++; 
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++; 
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
+			}
+			
+			if (fields[x][y][0]==8){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x][y][1]++;
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++; 
+
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
+			}
+			
+			if (fields[x][y][0]==9){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x+1][y][0]==2 || fields[x+1][y][0]==3) fields[x][y][1]++;
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
+			}
+			
+			if (fields[x][y][0]==10){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++; 
+				if (fields[x][y-1][0]==1 || fields[x][y-1][0]==3) fields[x][y][1]++;
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
+			}
+			
+			if (fields[x][y][0]==11){ //if it is a road
+				/*TRAFFIC*/
+				if (fields[x-1][y][0]==2 || fields[x-1][y][0]==3) fields[x][y][1]++; 
+				if (fields[x][y+1][0]==1 || fields[x][y+1][0]==3) fields[x][y][1]++; 
+				
+				if (fields[x][y][1]<2) {fields[x][y][5]=100;}				
+				if (fields[x][y][1]==2) {fields[x][y][5]=90;}				
+				if (fields[x][y][1]==3) {fields[x][y][5]=70;}				
+				if (fields[x][y][1]>3) {fields[x][y][5]=65; Comments=Comments + tweeting(27);}				
+			}
 		}
 	}
 
@@ -561,24 +773,24 @@ if (total_score>99) Comments=Comments + "People are happy in your City. \n";
 		for ( var y = 1; y < (rows+1); y++ ) {
 			fields[x][y][5]+=60-(traveled_distance*10);
 			total_score+=fields[x][y][5]/10;
-			console.log(fields[x][y][5]);
-			if (fields[x][y][5]>95) document.getElementById("feedback" + x + y).innerHTML="<img src=\"img/happy.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
-			else {if (fields[x][y][5]>75) document.getElementById("feedback" + x + y).innerHTML="<img src=\"img/OK.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
-			else document.getElementById("feedback" + x + y).innerHTML="<img src=\"img/sad.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
+			var reference="feedback" + (x-1) + (y-1);
+			if (fields[x][y][5]>95) document.getElementById(reference).innerHTML="<img src=\"img/happy.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
+			else {if (fields[x][y][5]>75) document.getElementById("feedback" + (x-1) + (y-1)).innerHTML="<img src=\"img/OK.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
+			else document.getElementById(reference).innerHTML="<img src=\"img/sad.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
 			}
-			if (fields[x][y][0]==0) document.getElementById("feedback" + x + y).innerHTML="<img src=\"img/empty.png\" class=\"size feedback_img\">";
+			if (fields[x][y][0]==0) document.getElementById(reference).innerHTML="<img src=\"img/empty.png\" class=\"size feedback_img\">";
 		}
 	}
-total_score+=homes.length*30;
-total_score+=companies.length*30;
-total_score+=(3-options[6])*30;
+total_score+=max_population/30000;
+total_score+=max_workplace/30000;
+total_score+=(options[17]+options[18]+options[19]+options[20]+options[21]+options[22]+options[23]+options[24]+options[25]+options[26]+options[27]+options[28])*10;
 
-if (traveled_distance<2.5) Comments=Comments + "People are happy for short traveling times. ";
-else {if (traveled_distance<2.5) Comments=Comments + "People are OK with the traveling time. ";
-	else Comments=Comments + "People are sad because they have to travel a lot. ";}
+if (traveled_distance<2.5) {Comments=Comments + tweeting(28); total_score+=400;}
+else {if (traveled_distance<6) Comments=Comments + tweeting(29);
+	else {Comments=Comments + tweeting(30);total_score-=200;}}
 
-Comments=Comments + "</p><p><b>Your final score: </b>" + Math.round(total_score);
-Comments=Comments + ". <i>The highest ever score is 978. So, do you think you can do better?</i>"	
+Comments=Comments + "</table></div><p><b>Your final score: </b>" + Math.round(total_score);
+Comments=Comments + ". <i>The highest ever score is 1878. So, do you think you can do better?</i>"	
 document.getElementById("CommentsDIV").innerHTML=Comments;
 document.getElementById("finish_button").style.display = "none";
 document.getElementById("help_button").style.display = "none";
