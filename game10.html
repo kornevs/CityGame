@@ -55,7 +55,12 @@ color: #1DA1F2;
 	padding:10px;
 	background-color:#fcfcc1;
 	border-radius: 10px;
-	border: 2px solid #9f900b;}
+	border: 2px solid #9f900b;
+	min-width:10vw;}
+
+.build_choice img {
+	float: left;
+	margin-right:3px;}
 	
 .sizeS {height:11vw;
 	width:11vw;}
@@ -91,6 +96,19 @@ color: #1DA1F2;
 	border: 2px solid black;
 	z-index: 90;}
 
+#TweetsDIV {
+	border:5px solid #48AAE6;
+	overflow-y: scroll;
+	height:400px;
+	padding:10px;}
+	
+#TweetsDIV h2 {
+	font-family: "Segoe UI",Arial,sans-serif;
+	color:white;
+	background-color:#48AAE6;
+	margin: -10px;
+    margin-bottom: 20px;
+	padding:10px;	}
 		
 /* Landscape */
 @media screen and (orientation:landscape) {
@@ -138,6 +156,11 @@ color: #1DA1F2;
 		border: 2px solid black;
 		z-index: 99;}
 
+		#CommentsDIV,#TweetsDIV {
+    border: 1px solid white;
+    float: left;
+	width: 48vw;
+}
 		
 }
 
@@ -188,12 +211,15 @@ color: #1DA1F2;
 	padding: 10px;
 	border: 2px solid black;
 	z-index: 99;}
+	
+	
 		
 }
 
 
 </style>
 <script src="feedback.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
@@ -339,59 +365,68 @@ Once you are done, just press "Finish"</p>
 	<div style="clear:both"></div>
 	</br>
 	<div id="road_category"  style="display:none">
-		<div onclick="choosen_field(1)" class="build_choice"><img src="img/roadH.png" class="sizeM">road from north to south</div>
-		<div onclick="choosen_field(2)" class="build_choice"><img src="img/roadV.png" class="sizeM">road from east to west</div>
-		<div onclick="choosen_field(3)" class="build_choice"><img src="img/roadC.png" class="sizeM">road cross</div>
-		<div onclick="choosen_field(4)" class="build_choice"><img src="img/road1.png" class="sizeM">t-shape road cross</div>
-		<div onclick="choosen_field(5)" class="build_choice"><img src="img/road2.png" class="sizeM">t-shape road cross</div>
-		<div onclick="choosen_field(6)" class="build_choice"><img src="img/road3.png" class="sizeM">t-shape road cross</div>
-		<div onclick="choosen_field(7)" class="build_choice"><img src="img/road4.png" class="sizeM">t-shape road cross</div>
-		<div onclick="choosen_field(8)" class="build_choice"><img src="img/road5.png" class="sizeM">turning road</div>
-		<div onclick="choosen_field(9)" class="build_choice"><img src="img/road6.png" class="sizeM">turning road</div>
-		<div onclick="choosen_field(10)" class="build_choice"><img src="img/road7.png" class="sizeM">turning road</div>
-		<div onclick="choosen_field(11)" class="build_choice"><img src="img/road8.png" class="sizeM">turning road</div>
+		<div onclick="choosen_field(1)" class="build_choice"><img src="img/roadH.png" class="sizeM"><b>Road</b></br>Road from north to south</div>
+		<div onclick="choosen_field(2)" class="build_choice"><img src="img/roadV.png" class="sizeM"><b>Road</b></br>Road from east to west</div>
+		<div onclick="choosen_field(3)" class="build_choice"><img src="img/roadC.png" class="sizeM"><b>Road</b></br>Road cross</div>
+		<div onclick="choosen_field(4)" class="build_choice"><img src="img/road1.png" class="sizeM"><b>Road</b></br>T-shape road cross</div>
+		<div onclick="choosen_field(5)" class="build_choice"><img src="img/road2.png" class="sizeM"><b>Road</b></br>T-shape road cross</div>
+		<div onclick="choosen_field(6)" class="build_choice"><img src="img/road3.png" class="sizeM"><b>Road</b></br>T-shape road cross</div>
+		<div onclick="choosen_field(7)" class="build_choice"><img src="img/road4.png" class="sizeM"><b>Road</b></br>T-shape road cross</div>
+		<div onclick="choosen_field(8)" class="build_choice"><img src="img/road5.png" class="sizeM"><b>Road</b></br>Turning road</div>
+		<div onclick="choosen_field(9)" class="build_choice"><img src="img/road6.png" class="sizeM"><b>Road</b></br>Turning road</div>
+		<div onclick="choosen_field(10)" class="build_choice"><img src="img/road7.png" class="sizeM"><b>Road</b></br>Turning road</div>
+		<div onclick="choosen_field(11)" class="build_choice"><img src="img/road8.png" class="sizeM"><b>Road</b></br>Turning road</div>
 		<div style="clear:both"></div>
 	</div>
 	<div id="housing_category"  style="display:none">
-		<div onclick="choosen_field(12)" class="build_choice"><img src="img/homes.png" class="sizeM"><b>District with villas</b> gives home to 1000 people</div>
-		<div onclick="choosen_field(13)" class="build_choice"><img src="img/radhus.png" class="sizeM"><b>District with rådhuset</b> that gives home to 1000 people</div>
-		<div onclick="choosen_field(14)" class="build_choice"><img src="img/lagenhet.png" class="sizeM"><b>District with lägenhet</b> that gives home to 1000 people</div>
+		<div onclick="choosen_field(12)" class="build_choice"><img src="img/homes.png" class="sizeM"><b>District with villas</b></br> Luxary home for 500 people.</br>People in villas tend to be more</br> social.</div>
+		<div onclick="choosen_field(13)" class="build_choice"><img src="img/radhus.png" class="sizeM"><b>District with rådhuset</b></br> Gives home to 1500 people.</div>
+		<div onclick="choosen_field(14)" class="build_choice"><img src="img/lagenhet.png" class="sizeM"><b>District with lägenhet</b></br> This is home to 5000 people. Uses more energy and city budget</div>
 		<div style="clear:both"></div>
 	</div>
 	<div id="job_category"  style="display:none">
-		<div onclick="choosen_field(15)" class="build_choice"><img src="img/work.png" class="sizeM">factory that gives jobs to 2000 people</div>
-		<div onclick="choosen_field(16)" class="build_choice"><img src="img/office.png" class="sizeM">office distric gives jobs to 2000 people</div>
+		<div onclick="choosen_field(15)" class="build_choice"><img src="img/work.png" class="sizeM"><b>Factory</b></br> Factory gives jobs to 7000 people.</br> Uses more energy then office but produce</br> more profits.</div>
+		<div onclick="choosen_field(16)" class="build_choice"><img src="img/office.png" class="sizeM"><b>Office district</b></br>Gives jobs to 7000 people.</br> A bit more social place then a factory.</div>
 		<div style="clear:both"></div>
 	</div>
 	<div id="entertainment_category"  style="display:none">
-		<div onclick="choosen_field(17)" class="build_choice"><img src="img/park.png" class="sizeM">park gives happiness to 3000 people</div>
-		<div onclick="choosen_field(18)" class="build_choice"><img src="img/casino.png" class="sizeM">casino gives happiness to 3000 people</div>
-		<div onclick="choosen_field(19)" class="build_choice"><img src="img/museum.png" class="sizeM">museum gives happiness to 3000 people</div>
+		<div onclick="choosen_field(17)" class="build_choice"><img src="img/park.png" class="sizeM"><b>Park</b></br> Place where up to 10,000 people can relax and enjoy nature.</div>
+		<div onclick="choosen_field(18)" class="build_choice"><img src="img/casino.png" class="sizeM"><b>Casino</b></br> Entraiment for adults that gives happiness</br> to 10,000 people. Uses more energy but brings</br> extra money for the city.</div>
+		<div onclick="choosen_field(19)" class="build_choice"><img src="img/museum.png" class="sizeM"><b>Museum</b></br> Educational and social fun for up to 10,000 people.</div>
 		<div style="clear:both"></div>
 	</div>
 	<div id="energy_category"  style="display:none">
-		<div onclick="choosen_field(20)" class="build_choice"><img src="img/coal.png" class="sizeM">park gives happiness to 3000 people</div>
-		<div onclick="choosen_field(21)" class="build_choice"><img src="img/windmill.png" class="sizeM">casino gives happiness to 3000 people</div>
-		<div onclick="choosen_field(22)" class="build_choice"><img src="img/nuclear.png" class="sizeM">museum gives happiness to 3000 people</div>
+		<div onclick="choosen_field(20)" class="build_choice"><img src="img/coal.png" class="sizeM"><b>Coal energy station</b></br> Generates enough energy for all city.</div>
+		<div onclick="choosen_field(21)" class="build_choice"><img src="img/windmill.png" class="sizeM"><b>Windwill energy generators</b></br>Can produce energy for half of city.</div>
+		<div onclick="choosen_field(22)" class="build_choice"><img src="img/nuclear.png" class="sizeM"><b>Nuclear power station</b></br>Generates energy for entire city.</div>
 		<div style="clear:both"></div>
 	</div>
 	<div id="education_category"  style="display:none">
-		<div onclick="choosen_field(23)" class="build_choice"><img src="img/dagis.png" class="sizeM">park gives happiness to 3000 people</div>
-		<div onclick="choosen_field(24)" class="build_choice"><img src="img/skolan.png" class="sizeM">casino gives happiness to 3000 people</div>
-		<div onclick="choosen_field(25)" class="build_choice"><img src="img/hogskolan.png" class="sizeM">museum gives happiness to 3000 people</div>
+		<div onclick="choosen_field(23)" class="build_choice"><img src="img/dagis.png" class="sizeM"><b>Förskola</b></br>Place to learn and play for 2500 kids.</div>
+		<div onclick="choosen_field(24)" class="build_choice"><img src="img/skolan.png" class="sizeM"><b>Skola</b></br>Provides education for 12,000 students.</div>
+		<div onclick="choosen_field(25)" class="build_choice"><img src="img/hogskolan.png" class="sizeM"><b>Högskola</b></br>Can give higher education for all students in the city.</div>
 		<div style="clear:both"></div>
 	</div>
 	<div id="emergency_category"  style="display:none">
-		<div onclick="choosen_field(26)" class="build_choice"><img src="img/brandstation.png" class="sizeM"><b>Brandstation</b> gives happiness to 3000 people</div>
-		<div onclick="choosen_field(27)" class="build_choice"><img src="img/polis.png" class="sizeM">casino gives happiness to 3000 people</div>
-		<div onclick="choosen_field(28)" class="build_choice"><img src="img/sjukhus.png" class="sizeM">museum gives happiness to 3000 people</div>
+		<div onclick="choosen_field(26)" class="build_choice"><img src="img/brandstation.png" class="sizeM"><b>Brandstation</b></br>Making sure that 100,000 people are safe.</div>
+		<div onclick="choosen_field(27)" class="build_choice"><img src="img/polis.png" class="sizeM"><b>Polis</b></br>Operates best in areas with less then 100,000 people.</div>
+		<div onclick="choosen_field(28)" class="build_choice"><img src="img/sjukhus.png" class="sizeM"><b>Sjukhus</b></br>Has capacity to deal with 50,000 people.</div>
 		<div style="clear:both"></div>
 	</div>
 	
 	<button onclick="close_build()">Close</button>
 </div>
+<div id="Feedback_field" style="display:none">
+<div id="CommentsDIV">
+<h1>You have created your town!</h1>
+<div id="Comments"></div>
+<div id="Plots"></div>
+<div id="FinalComments"></div>
 
-<div id="CommentsDIV"></div>
+</div>
+
+<div id="TweetsDIV"></div>
+</div>
 <script>
 var options=[99,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 	fields = [],
@@ -399,8 +434,38 @@ var options=[99,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 	homes=[],
 	companies=[],
 	active_cell="",
-	fields_names=["Empty space", "Road","Road","Road", "Homes", "Work ares", "Entartatiment area"];
-	fields_disc=["nothing happens here", "road connects objects together","road connects objects together","road connects objects together", "house district gives home to 1000 people", "commercial distric gives jobs to 2000 people", "relaxing field gives happiness to 3000 people"];
+	
+	fields_disc=[
+		["Empty field", "Nothing happens here"],
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["Road", "Road connects objects together"],	
+		["District with villas", "Private homes for 500 people. People in villas tend to be more social."],	
+		["District with rådhuset", "Gives home to 1500 people."],	
+		["District with lägenhet", "This is home to 5000 people. Uses more energy and city budget"],	
+		["Factory", "Factory gives jobs to 7000 people. Uses more energy then office but produce more profits."],	
+		["Office district", "Gives jobs to 7000 people. A bit more social place then a factory."],	
+		["Park", "Place where up to 10,000 people can relax and enjoy nature."],	
+		["Casino", "Entraiment for adults that gives happiness to 10,000 people. Uses more energy but brings extra money for the city."],	
+		["Museum", "Educational and social fun for up to 10,000 people."],	
+		["Coal energy station", "Generates enough energy for all city."],	
+		["Windwill energy generators", "Can produce energy for half of city."],	
+		["Nuclear power station", "Generates energy for entire city."],	
+		["Förskola", "Place to learn and play for 2500 kids."],	
+		["Skola", "Provides education for 12,000 students."],	
+		["Högskola", "Can give higher education for all students in the city."],	
+		["Brandstation", "Making sure that 100,000 people are safe."],	
+		["Polis", "Operates best in areas with less then 100,000 people."],	
+		["Sjukhus", "Has capacity to deal with 50,000 people."]		
+	];
 
 
 for ( var y = 0; y < (rows+2); y++ ) { //for calculation purposes I need 0 and row+1
@@ -437,8 +502,8 @@ function choose_field(field) {
 	active_cell=field;
 	temp_field=active_cell.replace("field", "feedback");
 	document.getElementById(temp_field).innerHTML="<img src=\"img/frame.png\" class=\"size feedback_img\">";
-	temp_field=fields[parseInt(field.charAt(5))][parseInt(field.charAt(6))][0];
-	document.getElementById("cell_discription").innerHTML="<h3>"+ fields_names[temp_field]+"</h3><p>"+ fields_disc[temp_field]+"</p>";
+	temp_field=fields[(parseInt(field.charAt(5))+1)][(parseInt(field.charAt(6))+1)][0];
+	document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[temp_field][0]+"</h3><p>"+ fields_disc[temp_field][1]+"</p>";
 }
 
 function open_build() {	
@@ -472,63 +537,63 @@ var field=active_cell;
 	
 	switch (option) {
 		case 0: document.getElementById(field).src="img/empty.png";
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 1: document.getElementById(field).src="img/roadH.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 2: document.getElementById(field).src="img/roadV.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 3: document.getElementById(field).src="img/roadC.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 4: document.getElementById(field).src="img/road1.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 5: document.getElementById(field).src="img/road2.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 6: document.getElementById(field).src="img/road3.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 7: document.getElementById(field).src="img/road4.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 8: document.getElementById(field).src="img/road5.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 9: document.getElementById(field).src="img/road6.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;	
 		case 10: document.getElementById(field).src="img/road7.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;	
 		case 11: document.getElementById(field).src="img/road8.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 12: document.getElementById(field).src="img/homes.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;	
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 13: document.getElementById(field).src="img/radhus.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 14: document.getElementById(field).src="img/lagenhet.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;	
 		case 15: document.getElementById(field).src="img/work.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 16: document.getElementById(field).src="img/office.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 17: document.getElementById(field).src="img/park.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 18: document.getElementById(field).src="img/casino.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;	
 		case 19: document.getElementById(field).src="img/museum.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;		
 		case 20: document.getElementById(field).src="img/coal.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;	
 		case 21: document.getElementById(field).src="img/windmill.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 22: document.getElementById(field).src="img/nuclear.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 23: document.getElementById(field).src="img/dagis.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;	
 		case 24: document.getElementById(field).src="img/skolan.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 25: document.getElementById(field).src="img/hogskolan.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;	
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 26: document.getElementById(field).src="img/brandstation.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 27: document.getElementById(field).src="img/polis.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;		
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;
 		case 28: document.getElementById(field).src="img/sjukhus.png"; 
-		document.getElementById("cell_discription").innerHTML="<h3>Empty feld</h3><p>Nothing happens here</p>";break;			
+		document.getElementById("cell_discription").innerHTML="<h3>"+ fields_disc[option][0]+"</h3><p>"+ fields_disc[option][1]+"</p>";break;	
 	}
 	
 	document.getElementById("build").style.display = "none";	
@@ -539,15 +604,13 @@ var field=active_cell;
 function finished(){
 var general_state, total_score=100, Comments;
 
-Comments="<h1>You have created your town!</h1>";
+
 var max_population=options[12]*500+options[13]*1500+options[14]*5000;
 var max_workplace=options[15]*7000+options[16]*7000+options[17]*500+options[18]*500+options[19]*500+options[20]*500+options[21]*500+options[22]*500+options[23]*500+options[24]*500+options[25]*500+options[26]*500+options[27]*500+options[28]*500;
 var max_entertaiment=options[17]*10000+options[18]*10000+options[19]*10000;
 
-Comments=Comments + "<p><b>Maximum population: </b>" + max_population + "</br>";
-Comments=Comments + "<p><b>Maximum work places: </b>" + max_workplace + "</br>";
-Comments=Comments + "<p><b>Maximum relaxation places: </b>" + max_entertaiment + "</br></p></br>";
-Comments=Comments + "<h3>Tweets about your town</h3><div style=\"overflow-y: scroll; height:400px;\"><table id=\"tweets\">";
+
+Comments="<h2>Tweets from you citizens</h2><table id=\"tweets\">";
 
 if((max_workplace/max_population)<0.9) {Comments=Comments + tweeting(0); total_score=(max_workplace/max_population)*total_score;} else {total_score=total_score*1.02} //unemplyment
 if((max_workplace/max_population)>1.3) {Comments=Comments + tweeting(1); total_score=0.9*total_score;}  else {total_score=total_score*1.02} //lack of workers
@@ -559,9 +622,10 @@ if (options[25]<1) {Comments=Comments + tweeting(6); total_score=0.8*total_score
 if (((options[26]*100000)/max_population)<0.8) {Comments=Comments + tweeting(7); total_score=0.8*total_score;} //lack of fire station
 if (((options[27]*100000)/max_population)<0.8) {Comments=Comments + tweeting(8); total_score=0.8*total_score;} //lack of polis
 if (((options[28]*50000)/max_population)<0.8) {Comments=Comments + tweeting(9); total_score=0.8*total_score;} //lack of hospitals
+
 if (total_score>99) Comments=Comments + tweeting(10);
 
-console.log("Priliminary score is " + total_score + " out of 100");
+
 
 	for ( var x = 1; x < (rows+1); x++ ) {
 		for ( var y = 1; y < (rows+1); y++ ) {
@@ -570,10 +634,11 @@ console.log("Priliminary score is " + total_score + " out of 100");
 			if (fields[x][y][0]==12||fields[x][y][0]==13||fields[x][y][0]==14){ //if it is house
 				homes.push([x,y]);
 				/*TRAFFIC*/
-				if ((fields[x+1][y][0]==2 || fields[x+1][y][0]==3 || fields[x+1][y][0]==5 || fields[x+1][y][0]==6 || fields[x+1][y][0]==7 || fields[x+1][y][0]==10 || fields[x+1][y][0]==11)) 	{fields[x+1][y][1]++; fields[x][y][4]=1;}
-				if ((fields[x-1][y][0]==2 || fields[x-1][y][0]==3 || fields[x-1][y][0]==4 || fields[x-1][y][0]==5 || fields[x-1][y][0]==7 || fields[x-1][y][0]==8 || fields[x-1][y][0]==9) )		{fields[x-1][y][1]++; fields[x][y][4]=1;}
-				if ((fields[x][y+1][0]==1 || fields[x][y+1][0]==3 || fields[x][y+1][0]==4 || fields[x][y+1][0]==5 || fields[x][y+1][0]==6 || fields[x][y+1][0]==9 || fields[x][y+1][0]==10) )	{fields[x][y+1][1]++; fields[x][y][4]=1;}
-				if ((fields[x][y-1][0]==1 || fields[x][y-1][0]==3 || fields[x][y-1][0]==4 || fields[x][y-1][0]==6 || fields[x][y-1][0]==7 || fields[x][y-1][0]==8 || fields[x][y-1][0]==11) ) 	{fields[x][y-1][1]++; fields[x][y][4]=1;}
+				if (fields[x+1][y][0]>0&&fields[x+1][y][0]<12) {fields[x+1][y][1]++; fields[x][y][4]=1;}
+				if (fields[x-1][y][0]>0&&fields[x+1][y][0]<12) {fields[x-1][y][1]++; fields[x][y][4]=1;}
+				if (fields[x][y+1][0]>0&&fields[x+1][y][0]<12) {fields[x][y+1][1]++; fields[x][y][4]=1;}
+				if (fields[x][y-1][0]>0&&fields[x+1][y][0]<12) {fields[x][y-1][1]++; fields[x][y][4]=1;}			
+				
 				/*POLLUTION FROM FACTORY, NUCLEAR or COAL POWER STATIONS*/
 				if (x!=9 && (fields[x+1][y][0]==15 || fields[x+1][y][0]==20 || fields[x+1][y][0]==22)) {fields[x][y][3]++; happiness=happiness-15;}
 				if (x!=0 && (fields[x-1][y][0]==15 || fields[x-1][y][0]==20 || fields[x-1][y][0]==22)) {fields[x][y][3]++; happiness=happiness-15;} 
@@ -595,10 +660,10 @@ console.log("Priliminary score is " + total_score + " out of 100");
 			if (fields[x][y][0]==15||fields[x][y][0]==16){ //if it is FACTORY or OFFICE
 				companies.push([x,y]);
 				/*TRAFFIC*/
-				if ((fields[x+1][y][0]==2 || fields[x+1][y][0]==3 || fields[x+1][y][0]==5 || fields[x+1][y][0]==6 || fields[x+1][y][0]==7 || fields[x+1][y][0]==10 || fields[x+1][y][0]==11) && x!=9) 	{fields[x+1][y][1]++; fields[x][y][4]=1;}
-				if ((fields[x-1][y][0]==2 || fields[x-1][y][0]==3 || fields[x-1][y][0]==4 || fields[x-1][y][0]==5 || fields[x-1][y][0]==7 || fields[x-1][y][0]==8 || fields[x-1][y][0]==9) && x!=0)		{fields[x-1][y][1]++; fields[x][y][4]=1;}
-				if ((fields[x][y+1][0]==1 || fields[x][y+1][0]==3 || fields[x][y+1][0]==4 || fields[x][y+1][0]==5 || fields[x][y+1][0]==6 || fields[x][y+1][0]==9 || fields[x][y+1][0]==10) && y!=9)	{fields[x][y+1][1]++; fields[x][y][4]=1;}
-				if ((fields[x][y-1][0]==1 || fields[x][y-1][0]==3 || fields[x][y-1][0]==4 || fields[x][y-1][0]==6 || fields[x][y-1][0]==7 || fields[x][y-1][0]==8 || fields[x][y-1][0]==11) && y!=0) 	{fields[x][y-1][1]++; fields[x][y][4]=1;}
+				if (fields[x+1][y][0]>0&&fields[x+1][y][0]<12) {fields[x+1][y][1]++; fields[x][y][4]=1;}
+				if (fields[x-1][y][0]>0&&fields[x+1][y][0]<12) {fields[x-1][y][1]++; fields[x][y][4]=1;}
+				if (fields[x][y+1][0]>0&&fields[x+1][y][0]<12) {fields[x][y+1][1]++; fields[x][y][4]=1;}
+				if (fields[x][y-1][0]>0&&fields[x+1][y][0]<12) {fields[x][y-1][1]++; fields[x][y][4]=1;}	
 				
 				/*Competition FROM COMPANIES*/
 				if (x!=9 && (fields[x+1][y][0]==15 || fields[x+1][y][0]==16)) {fields[x][y][3]++;}
@@ -619,10 +684,10 @@ console.log("Priliminary score is " + total_score + " out of 100");
 			
 			if (fields[x][y][0]>15){ //if other objects
 				/*TRAFFIC ROAD CONNECTIVITY*/
-				if ((fields[x+1][y][0]==2 || fields[x+1][y][0]==3 || fields[x+1][y][0]==5 || fields[x+1][y][0]==6 || fields[x+1][y][0]==7 || fields[x+1][y][0]==10 || fields[x+1][y][0]==11) && x!=9) 	{fields[x+1][y][1]++; fields[x][y][4]=1;}
-				if ((fields[x-1][y][0]==2 || fields[x-1][y][0]==3 || fields[x-1][y][0]==4 || fields[x-1][y][0]==5 || fields[x-1][y][0]==7 || fields[x-1][y][0]==8 || fields[x-1][y][0]==9) && x!=0)		{fields[x-1][y][1]++; fields[x][y][4]=1;}
-				if ((fields[x][y+1][0]==1 || fields[x][y+1][0]==3 || fields[x][y+1][0]==4 || fields[x][y+1][0]==5 || fields[x][y+1][0]==6 || fields[x][y+1][0]==9 || fields[x][y+1][0]==10) && y!=9)	{fields[x][y+1][1]++; fields[x][y][4]=1;}
-				if ((fields[x][y-1][0]==1 || fields[x][y-1][0]==3 || fields[x][y-1][0]==4 || fields[x][y-1][0]==6 || fields[x][y-1][0]==7 || fields[x][y-1][0]==8 || fields[x][y-1][0]==11) && y!=0) 	{fields[x][y-1][1]++; fields[x][y][4]=1;}	
+				if (fields[x+1][y][0]>0&&fields[x+1][y][0]<12) {fields[x+1][y][1]++; fields[x][y][4]=1;}
+				if (fields[x-1][y][0]>0&&fields[x+1][y][0]<12) {fields[x-1][y][1]++; fields[x][y][4]=1;}
+				if (fields[x][y+1][0]>0&&fields[x+1][y][0]<12) {fields[x][y+1][1]++; fields[x][y][4]=1;}
+				if (fields[x][y-1][0]>0&&fields[x+1][y][0]<12) {fields[x][y-1][1]++; fields[x][y][4]=1;}		
 				if (fields[x][y][4]!=1) {happiness=10;	Comments=Comments + tweeting(fields[x][y][0]-2);}	// not connected				
 				fields[x][y][5]=happiness; 				
 			}
@@ -768,11 +833,54 @@ console.log("Priliminary score is " + total_score + " out of 100");
 	}
 	if (counter>0) traveled_distance=traveled_distance/counter;
 
+/*Criteria*/
+var Energy, Economics, Enviropment, Social;
+	
+Energy=options[20]*100+options[21]*50+options[22]*100-options[12]*1-options[13]*2-options[14]*5-options[15]*30-options[16]*15-options[18]*5-(options[26]+options[27]+options[28])*3;
+Economics=options[12]*2+options[13]*2+options[14]*1+options[15]*30+options[16]*15+options[18]*6+options[25]*5-(options[26]+options[27]+options[28])*3;
+Enviropment=options[15]*10+options[17]*30-options[20]*40-options[21]*15
+Social=(options[1]+options[2]+options[3]+options[4]+options[5]+options[6]+options[7]+options[8]+options[9]+options[10]+options[11])*2+options[12]*2+options[16]*5+options[19]*5-options[22]*20+(options[23]+options[24]+options[25])*3-options[27]*3+options[28]*3+max_population/10000;
+
+google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ["Indicator", "Value", { role: "style" } ],
+        ["Energy", Energy, "gold"],
+        ["Economics", Economics, "blue"],
+        ["Enviropment", Enviropment, "green"],
+        ["Social", Social, "red"]
+      ]);
+
+        var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "City Development Indicators",
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("Plots"));
+      chart.draw(view, options);
+  }
+
+
+
 /*SHOW RESULTS*/
+	total_score=total_score*10;
 	for ( var x = 1; x < (rows+1); x++ ) {
 		for ( var y = 1; y < (rows+1); y++ ) {
 			fields[x][y][5]+=60-(traveled_distance*10);
-			total_score+=fields[x][y][5]/10;
+			if (fields[x][y][0]>0&&fields[x][y][0]<12) total_score+=fields[x][y][5]/25;
+			if (fields[x][y][0]>11) total_score+=fields[x][y][5]/15;
+			
+			
 			var reference="feedback" + (x-1) + (y-1);
 			if (fields[x][y][5]>95) document.getElementById(reference).innerHTML="<img src=\"img/happy.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
 			else {if (fields[x][y][5]>75) document.getElementById("feedback" + (x-1) + (y-1)).innerHTML="<img src=\"img/OK.png\" class=\"size feedback_img\" title=\""+ fields[x][y][5] +"\">";
@@ -781,17 +889,28 @@ console.log("Priliminary score is " + total_score + " out of 100");
 			if (fields[x][y][0]==0) document.getElementById(reference).innerHTML="<img src=\"img/empty.png\" class=\"size feedback_img\">";
 		}
 	}
-total_score+=max_population/30000;
-total_score+=max_workplace/30000;
+total_score+=max_population/500;
+total_score+=max_workplace/500;
 total_score+=(options[17]+options[18]+options[19]+options[20]+options[21]+options[22]+options[23]+options[24]+options[25]+options[26]+options[27]+options[28])*10;
 
 if (traveled_distance<2.5) {Comments=Comments + tweeting(28); total_score+=400;}
 else {if (traveled_distance<6) Comments=Comments + tweeting(29);
 	else {Comments=Comments + tweeting(30);total_score-=200;}}
 
-Comments=Comments + "</table></div><p><b>Your final score: </b>" + Math.round(total_score);
-Comments=Comments + ". <i>The highest ever score is 1878. So, do you think you can do better?</i>"	
-document.getElementById("CommentsDIV").innerHTML=Comments;
+if 	(max_population==0) total_score=0;
+Comments=Comments + "</table>";
+document.getElementById("TweetsDIV").innerHTML=Comments;
+
+Comments="";
+Comments=Comments + "<p><b>Maximum population: </b>" + max_population + "</br>";
+Comments=Comments + "<p><b>Maximum work places: </b>" + max_workplace + "</br>";
+Comments=Comments + "<p><b>Maximum relaxation places: </b>" + max_entertaiment + "</br></p></br>";
+document.getElementById("Comments").innerHTML=Comments;
+Comments="<p><b>Your final score: </b>" + Math.round(total_score);
+Comments=Comments + ". <i>The highest ever score is 3045. So, do you think you can do better?</i></p>";
+document.getElementById("Feedback_field").style.display = "block";
+
+document.getElementById("FinalComments").innerHTML=Comments;
 document.getElementById("finish_button").style.display = "none";
 document.getElementById("help_button").style.display = "none";
 document.getElementById("build_button").style.display = "none";
